@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/showDay.js"></script>
+    <script src="./scripts/checkID.js"></script>
+    <script src="./scripts/address.js"></script>
+    <style>
+        form {
+            background-color: #FFFFDF;
+            /* max-width: 40%; */
+            margin: 0 auto;
+        }
+
+        table {
+            /* width: 600px; */
+            border: solid gray 2px;
+            /* background-color: aqua; */
+            position: center;
+            margin: 16px auto;
+        }
+
+        td {
+            border: solid gray 2px;
+        }
+        
+        td.name {
+            width: 150px;
+        }
+        
+        input{
+            margin: 2px;
+        }
+
+        span{
+            color: red;
+        }
+
+        .title {
+            color: rgb(190, 41, 0);
+            font-size: 25px;
+            font-family: "標楷體";
+            margin-bottom: 16px;
+        }
+
+
+        </style>
+</head>
+
+<body onload="load()">
+
+    <form action="#" method="">
+        <table>
+            <caption class="title">輸入會員資料</caption>
+            <tr>
+                <div>
+                    <td class="name"><span>*</span>會員名稱</td>
+                    <td><input type="text"></td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td><span>*</span>性別</td>
+                    <td>
+                        <input type="radio" name="gender" value="male">男性
+                        <input type="radio" name="gender" value="female">女性
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <td><span>*</span>生日</td>
+                <td>
+                    西元
+                    <input type="text" name="birthday_y" id="birthday_y" size=5 maxlength="4" onblur="showMonths()">
+                    <select type="select" name="birthday_m" id="birthday_m" onchange="showDates()"></select>
+                    <select type="select" name="birthday_d" id="birthday_d"></select>
+                </td>
+            </tr>
+            <tr>
+                <td><span>*</span>身分證字號</td>
+                <td>
+                    <input type="text" name="ID" id="ID" onblur="checkID()">
+                    <span id="IDWrong"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><span>*</span>電話</td>
+                <td>
+                    <input type="text" name="phont" id="phont">
+                </td>
+            </tr>
+            <tr>
+                <td><span>*</span>住址</td>
+                <td>
+                    <select id="county" onchange="getTown()"></select>
+                    <select id="town" onchange="address()"></select>
+                    <input type="text" name="fullAddress" id="fullAddress" size="60" placeholder="address">
+                </td>
+            </tr>
+            <tr>
+                <td><span>*</span>電子郵件</td>
+                <td>
+                    <input type="email">
+                </td>
+            </tr>
+            <tr>
+                <td><span>*</span>帳號</td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td><span>*</span>密碼</td>
+                <td>
+                    <input type="password" name="pwd" id="pwd" onblur="PWDlength()">(必須6個字元以上)
+                </td>
+            </tr>
+            <tr>
+                <td><span>*</span>確認密碼</td>
+                <td>
+                    <input type="password" name="checkpwd" id="checkpwd" onblur="checkPWD()">
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: center;">
+            <input type="submit" value="送出">
+            <input type="reset" value="取消">
+        </div>
+    </form>
+
+    <script>
+        function load() {
+            showMonths();
+            getCounty();
+        }
+
+        function PWDlength() {
+            var pwd1 = document.getElementById("pwd").value;
+            if (pwd1.length < 6) {
+                alert("密碼必須6個字元以上")
+            }
+        }
+
+        function checkPWD() {
+            var pwd1 = document.getElementById("pwd").value;
+            var pwd2 = document.getElementById("checkpwd").value;
+
+            if (pwd1 != pwd2) {
+                alert("兩次密碼不相同")
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
