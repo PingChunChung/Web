@@ -1,0 +1,36 @@
+form {
+    background-color: #FFFFDF;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+table {
+    border: solid gray 2px;
+    position: center;
+    /* margin: 16px auto; */
+}
+
+td {
+    border: solid gray 2px;
+}
+
+td:first-child {
+    white-space: nowrap;
+    padding: 0 10px 0 5px;
+}
+
+input{
+    margin: 2px;
+}
+
+span{
+    color: red;
+}
+
+.title {
+    color: rgb(190, 41, 0);
+    font-size: 25px;
+    font-family: "標楷體";
+    margin-bottom: 16px;
+}
